@@ -16,16 +16,17 @@ class CovidFetchRequest: ObservableObject {
     @Published var allCountries: [CountryData] = []
     @Published var totalData: TotalData = testTotalData
     
+    let headers: HTTPHeaders = [
+        "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
+        "x-rapidapi-key": "5142dd158bmshaf048e9888d4501p1b0000jsn5f21ac36a157"
+    ]
+    
     init() {
         getCurrentTotal()
+        getAllCountries()
     }
     
     func getCurrentTotal() {
-        
-        let headers: HTTPHeaders = [
-            "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-            "x-rapidapi-key": "5142dd158bmshaf048e9888d4501p1b0000jsn5f21ac36a157"
-        ]
         
         AF.request("https://covid-19-data.p.rapidapi.com/totals?format=json", headers: headers).responseJSON { response in
             
@@ -34,7 +35,6 @@ class CovidFetchRequest: ObservableObject {
             if result != nil {
                 
                 let json = JSON(result!)
-//                print(json)
                 let confirmed = json[0]["confirmed"].intValue
                 let deaths = json[0]["deaths"].intValue
                 let recovered = json[0]["recovered"].intValue
@@ -47,7 +47,35 @@ class CovidFetchRequest: ObservableObject {
             }
             
         }
-
+    }
+    
+    
+    func getAllCountries() {
+        
+        // TODO: コロナの感染状況を取得するフリーのREST APIを探す
+        AF.request("https://covid-19-data.p.rapidapi.com/help/countries?format=json", headers: headers).responseJSON { response in
+            
+            let result = response.value
+            var allCount: [CountryData] = []
+            
+            if result != nil {
+                
+                let dataDictionary = result as! [Dictionary<String, AnyObject>]
+                
+                for countryData in dataDictionary {
+                    let name = countryData["name"] as? String ?? "Error"
+                    let longitude = countryData["longitude"] as? Double ?? 0.0
+                    let latitude = countryData["latitude"] as? Double ?? 0.0
+                    
+                    let countryObject = CountryData(name: name, logitude: longitude, latitude: latitude)
+                    allCount.append(countryObject)
+                }
+                
+            }
+            
+            // TODO: ソート順
+            self.allCountries = allCount
+        }
         
     }
 }
