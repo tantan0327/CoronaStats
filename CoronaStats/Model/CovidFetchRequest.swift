@@ -22,7 +22,8 @@ class CovidFetchRequest: ObservableObject {
     ]
     
     init() {
-        getCurrentTotal()
+        // exceededs the rate limit per second for free plan
+//        getCurrentTotal()
         getAllCountries()
     }
     

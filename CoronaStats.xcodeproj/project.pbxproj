@@ -17,6 +17,10 @@
 		FFC9226E24ACC7E80045E1DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFC9226C24ACC7E80045E1DE /* LaunchScreen.storyboard */; };
 		FFC9227624ACC99E0045E1DE /* CovidFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9227524ACC99E0045E1DE /* CovidFetchRequest.swift */; };
 		FFC9227824ACCDA50045E1DE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9227724ACCDA50045E1DE /* Model.swift */; };
+		FFC9227B24AE2F340045E1DE /* RecentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9227A24AE2F340045E1DE /* RecentView.swift */; };
+		FFC9227D24AE316A0045E1DE /* ListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9227C24AE316A0045E1DE /* ListHeaderView.swift */; };
+		FFC9227F24AE32F50045E1DE /* CountryDataRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9227E24AE32F50045E1DE /* CountryDataRowView.swift */; };
+		FFC9228124AE349F0045E1DE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9228024AE349F0045E1DE /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		FFC9226F24ACC7E80045E1DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFC9227524ACC99E0045E1DE /* CovidFetchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidFetchRequest.swift; sourceTree = "<group>"; };
 		FFC9227724ACCDA50045E1DE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		FFC9227A24AE2F340045E1DE /* RecentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentView.swift; sourceTree = "<group>"; };
+		FFC9227C24AE316A0045E1DE /* ListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeaderView.swift; sourceTree = "<group>"; };
+		FFC9227E24AE32F50045E1DE /* CountryDataRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataRowView.swift; sourceTree = "<group>"; };
+		FFC9228024AE349F0045E1DE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,16 +94,19 @@
 		FFC9225D24ACC7E00045E1DE /* CoronaStats */ = {
 			isa = PBXGroup;
 			children = (
+				FFC9227924AE2ED90045E1DE /* Model */,
 				FFC9225E24ACC7E00045E1DE /* AppDelegate.swift */,
 				FFC9226024ACC7E00045E1DE /* SceneDelegate.swift */,
 				FFC9226524ACC7E00045E1DE /* ContentView.swift */,
-				FFC9227524ACC99E0045E1DE /* CovidFetchRequest.swift */,
-				FFC9227724ACCDA50045E1DE /* Model.swift */,
 				FFC9226724ACC7E70045E1DE /* Assets.xcassets */,
 				FFC9226C24ACC7E80045E1DE /* LaunchScreen.storyboard */,
 				FFC9226F24ACC7E80045E1DE /* Info.plist */,
 				FFC9226224ACC7E00045E1DE /* CoronaStats.xcdatamodeld */,
 				FFC9226924ACC7E80045E1DE /* Preview Content */,
+				FFC9227A24AE2F340045E1DE /* RecentView.swift */,
+				FFC9228024AE349F0045E1DE /* Extension.swift */,
+				FFC9227C24AE316A0045E1DE /* ListHeaderView.swift */,
+				FFC9227E24AE32F50045E1DE /* CountryDataRowView.swift */,
 			);
 			path = CoronaStats;
 			sourceTree = "<group>";
@@ -106,6 +117,15 @@
 				FFC9226A24ACC7E80045E1DE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FFC9227924AE2ED90045E1DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FFC9227524ACC99E0045E1DE /* CovidFetchRequest.swift */,
+				FFC9227724ACCDA50045E1DE /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +248,11 @@
 				FFC9225F24ACC7E00045E1DE /* AppDelegate.swift in Sources */,
 				FFC9227824ACCDA50045E1DE /* Model.swift in Sources */,
 				FFC9226624ACC7E00045E1DE /* ContentView.swift in Sources */,
+				FFC9228124AE349F0045E1DE /* Extension.swift in Sources */,
+				FFC9227B24AE2F340045E1DE /* RecentView.swift in Sources */,
 				FFC9226124ACC7E00045E1DE /* SceneDelegate.swift in Sources */,
+				FFC9227D24AE316A0045E1DE /* ListHeaderView.swift in Sources */,
+				FFC9227F24AE32F50045E1DE /* CountryDataRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
