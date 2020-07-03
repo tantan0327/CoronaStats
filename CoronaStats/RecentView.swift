@@ -12,10 +12,18 @@ struct RecentView: View {
     
     @ObservedObject var covidFetch = CovidFetchRequest()
     @State var searchText = ""
+    @State var isSearchVisible = false
     
     var body: some View {
+        
         NavigationView {
             VStack {
+                
+                if isSearchVisible {
+                    SearchView(searchText: $searchText)
+                }
+                
+                TotalDataView(totalData: covidFetch.totalData)
                 ListHeaderView()
                 List {
                     ForEach(covidFetch.allCountries.filter{
@@ -25,6 +33,20 @@ struct RecentView: View {
                     }
                 }
             }
+            .navigationBarTitle("Recent Data", displayMode: .inline)
+            .navigationBarItems(trailing:
+                Button(action: {
+                    self.isSearchVisible.toggle()
+                    
+                    if !self.isSearchVisible {
+                        self.searchText = ""
+                    }
+                    
+                }, label: {
+                    Image(systemName: "magnifyingglass")
+                }
+                )
+            )
         }
     }
 }
