@@ -24,7 +24,7 @@ class CovidFetchRequest: ObservableObject {
     init() {
         // exceededs the rate limit per second for free plan
 //        getCurrentTotal()
-        getAllCountries()
+//        getAllCountries()
     }
     
     func getCurrentTotal() {
@@ -59,6 +59,8 @@ class CovidFetchRequest: ObservableObject {
             let result = response.value
             var allCount: [CountryData] = []
             
+            print(result)
+            
             if result != nil {
                 
                 let dataDictionary = result as! [Dictionary<String, AnyObject>]
@@ -68,7 +70,7 @@ class CovidFetchRequest: ObservableObject {
                     let longitude = countryData["longitude"] as? Double ?? 0.0
                     let latitude = countryData["latitude"] as? Double ?? 0.0
                     
-                    let countryObject = CountryData(name: name, logitude: longitude, latitude: latitude)
+                    let countryObject = CountryData(name: name, longitude: longitude, latitude: latitude)
                     allCount.append(countryObject)
                 }
                 

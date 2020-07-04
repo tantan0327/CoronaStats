@@ -32,7 +32,7 @@ struct CountryData {
 //    let critical: Int64
 //    let deaths: Int64
 //    let recovered: Int64
-    let logitude: Double
+    let longitude: Double
     let latitude: Double
     
 //    var fatalityRate: Double {
@@ -46,4 +46,4 @@ struct CountryData {
 }
 
 let testTotalData = TotalData(confirmed: 200, critical: 100, deaths: 20, recovered: 50)
-let testCountryData = CountryData(name: "Test", logitude: 0.0, latitude: 0.0)
+let testCountryData = CountryData(name: "Test", longitude: 0.0, latitude: 0.0)
