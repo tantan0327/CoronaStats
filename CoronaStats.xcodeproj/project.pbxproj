@@ -28,6 +28,7 @@
 		FFC9228E24AF6B5C0045E1DE /* CountryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9228D24AF6B5C0045E1DE /* CountryDetailView.swift */; };
 		FFC9229024B0629D0045E1DE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9228F24B0629D0045E1DE /* MapView.swift */; };
 		FFC9229224B0664F0045E1DE /* MapContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9229124B0664F0045E1DE /* MapContainerView.swift */; };
+		FFC9229424B06D7E0045E1DE /* CountryStatisticsFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC9229324B06D7E0045E1DE /* CountryStatisticsFetchRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		FFC9228D24AF6B5C0045E1DE /* CountryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailView.swift; sourceTree = "<group>"; };
 		FFC9228F24B0629D0045E1DE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FFC9229124B0664F0045E1DE /* MapContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContainerView.swift; sourceTree = "<group>"; };
+		FFC9229324B06D7E0045E1DE /* CountryStatisticsFetchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryStatisticsFetchRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				FFC9227524ACC99E0045E1DE /* CovidFetchRequest.swift */,
+				FFC9229324B06D7E0045E1DE /* CountryStatisticsFetchRequest.swift */,
 				FFC9227724ACCDA50045E1DE /* Model.swift */,
 			);
 			path = Model;
@@ -280,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC9229424B06D7E0045E1DE /* CountryStatisticsFetchRequest.swift in Sources */,
 				FFC9228C24AF6A770045E1DE /* CountryDetailRow.swift in Sources */,
 				FFC9229024B0629D0045E1DE /* MapView.swift in Sources */,
 				FFC9227624ACC99E0045E1DE /* CovidFetchRequest.swift in Sources */,

@@ -23,14 +23,21 @@ struct CountryDataRowView: View {
             
             Spacer()
 
+            // TODO: changeData
+            // conf
             Text("1000")
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
                 .font(.subheadline)
                 .frame(height: 40)
                 .padding(.leading, 5)
             
             Spacer()
             
+            // death
             Text("100")
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
                 .frame(width: 50, height: 40, alignment: .center)
                 .font(.subheadline)
                 .foregroundColor(.red)
@@ -38,7 +45,10 @@ struct CountryDataRowView: View {
             
             Spacer()
             
+            // recover
             Text("10")
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
                 .frame(width: 50, height: 40, alignment: .center)
                 .font(.subheadline)
                 .foregroundColor(.green)

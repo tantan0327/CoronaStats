@@ -10,23 +10,25 @@ import SwiftUI
 
 struct CountryDetailView: View {
     
-    var countryData: CountryData
+    @ObservedObject var countryStatisticsFetchRequest = CountryStatisticsFetchRequest()
+    var countryName: String
     
     var body: some View {
         
         VStack {
             
             VStack {
-                CountryDetailRow(number: "1000", name: "Confirmed")
+                CountryDetailRow(number: countryStatisticsFetchRequest.detailedCountryData?.confirmedCases.formatNumber() ?? "Err" , name: "Confirmed")
                     .padding(.top)
-                CountryDetailRow(number: "100", name: "Critical", color: .yellow)
-                CountryDetailRow(number: "100", name: "Deaths", color: .red)
-                CountryDetailRow(number: "42", name: "Death %", color: .red)
-                CountryDetailRow(number: "10", name: "Recovered", color: .green)
-                CountryDetailRow(number: "11", name: "Recovered %", color: .green)
-    //            CountryDetailRow(number: countryData.deaths.formatNumber(), name: "Recovered %", color: .green)
-
-    //            CountryDetailRow(number: String(format: "%.2f", countryData.recoveredRate), name: "Recovered %", color: .green)
+                CountryDetailRow(number: countryStatisticsFetchRequest.detailedCountryData?.activeCases.formatNumber() ?? "Err", name: "ActiveCases")
+                CountryDetailRow(number: "+" + (countryStatisticsFetchRequest.detailedCountryData?.newCases.formatNumber() ?? "Err"), name: "New Cases")
+                CountryDetailRow(number: countryStatisticsFetchRequest.detailedCountryData?.recoveredCases.formatNumber() ?? "Err", name: "Recovered Cases", color: .green)
+                CountryDetailRow(number: countryStatisticsFetchRequest.detailedCountryData?.criticalCases.formatNumber() ?? "Err", name: "Critical Cases", color: .yellow)
+                CountryDetailRow(number: countryStatisticsFetchRequest.detailedCountryData?.deaths.formatNumber() ?? "Err", name: "Deaths", color: .red)
+                CountryDetailRow(number: countryStatisticsFetchRequest.detailedCountryData?.newCases.formatNumber() ?? "Err", name: "New Deaths", color: .red)
+                CountryDetailRow(number: countryStatisticsFetchRequest.detailedCountryData?.testsDone.formatNumber() ?? "Err", name: "Tests Done", color: .yellow)
+                CountryDetailRow(number: String(format: "%.2f", countryStatisticsFetchRequest.detailedCountryData?.fatalityRate ?? 0.0) + "%", name: "Fatality Rate", color: .red)
+                CountryDetailRow(number: String(format: "%.2f", countryStatisticsFetchRequest.detailedCountryData?.recoveredRate ?? 0.0) + "%", name: "Recovery Rate", color: .green)
 
                 
             }
@@ -36,13 +38,14 @@ struct CountryDetailView: View {
             
             Spacer()
         }
-        .padding(.top, 50)
-        .navigationBarTitle(countryData.name)
+        .padding(.top, 25)
+        .navigationBarTitle(countryName)
+        .onAppear() {
+            self.getStatistics()
+        }
     }
-}
-
-struct CountryDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        CountryDetailView(countryData: testCountryData)
+    
+    private func getStatistics() {
+        countryStatisticsFetchRequest.getStatsFor(country: self.countryName.replacingOccurrences(of: " ", with: "-"))
     }
 }
