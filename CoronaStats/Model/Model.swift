@@ -28,20 +28,8 @@ struct TotalData {
 struct CountryData {
     
     let name: String
-//    let confirmed: Int64
-//    let critical: Int64
-//    let deaths: Int64
-//    let recovered: Int64
     let longitude: Double
     let latitude: Double
-    
-//    var fatalityRate: Double {
-//        return (100.00 * Double(deaths) / Double(confirmed))
-//    }
-//
-//    var recoveredRate: Double {
-//        return (100.00 * Double(recovered) / Double(confirmed))
-//    }
 
 }
 
@@ -68,4 +56,4 @@ struct DetailedCountryData {
 }
 
 let testTotalData = TotalData(confirmed: 200, critical: 100, deaths: 20, recovered: 50)
-let testCountryData = CountryData(name: "Japan", longitude: 0.0, latitude: 0.0)
+let testDetailedCountryData = DetailedCountryData(country: "Japan", confirmedCases: 100, newCases: 200, recoveredCases: 300, criticalCases: 400, activeCases: 500, deaths: 600, newDeaths: 700, testsDone: 800)

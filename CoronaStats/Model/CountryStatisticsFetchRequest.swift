@@ -11,7 +11,8 @@ import Alamofire
 import SwiftyJSON
 
 class CountryStatisticsFetchRequest: ObservableObject {
-    
+
+    @Published var allCountries: [DetailedCountryData] = []
     @Published var detailedCountryData: DetailedCountryData?
     
     let headers: HTTPHeaders = [
@@ -20,6 +21,7 @@ class CountryStatisticsFetchRequest: ObservableObject {
     ]
     
     init() {
+        getAllCountriesStats()
     }
     
     func getStatsFor(country: String) {
@@ -48,6 +50,36 @@ class CountryStatisticsFetchRequest: ObservableObject {
             
         }
     }
+    
+    func getAllCountriesStats() {
+        
+        AF.request("https://covid-193.p.rapidapi.com/statistics", headers: headers).responseJSON { response in
+            
+            let result = response.data
+            var allCount: [DetailedCountryData] = []
+                        
+            if result != nil {
+                let jsonObj = JSON(result!)
+                if let dataArray = jsonObj ["response"].array {
+                    for countryData in dataArray {
+                        let country = countryData["country"].string
+                        let deaths = countryData["deaths"]["total"].intValue
+                        let totalCases = countryData["cases"]["total"].intValue
+                        let recoveredCases = countryData["cases"]["recovered"].intValue
+                        
+                        let countryObject = DetailedCountryData(country: country!, confirmedCases: totalCases, newCases: 0, recoveredCases: recoveredCases, criticalCases: 0, activeCases: 0, deaths: deaths, newDeaths: 0, testsDone: 0)
+                        allCount.append(countryObject)
+                    }
+                }
+                
+            }
+            
+            // TODO: ソート順
+            self.allCountries = allCount
+        }
+        
+    }
+
     
 }
 

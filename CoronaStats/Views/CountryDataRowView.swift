@@ -10,12 +10,12 @@ import SwiftUI
 
 struct CountryDataRowView: View {
     
-    var countryData: CountryData
+    var detailedCountryData: DetailedCountryData
     
     var body: some View {
         
         HStack {
-            Text(countryData.name)
+            Text(detailedCountryData.country)
                 .fontWeight(.medium)
                 .font(.subheadline)
                 .lineLimit(2)
@@ -25,17 +25,17 @@ struct CountryDataRowView: View {
 
             // TODO: changeData
             // conf
-            Text("1000")
+            Text(String(detailedCountryData.confirmedCases))
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
+                .frame(width: 50, height: 40, alignment: .center)
                 .font(.subheadline)
-                .frame(height: 40)
                 .padding(.leading, 5)
             
             Spacer()
             
             // death
-            Text("100")
+            Text(String(detailedCountryData.deaths))
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
                 .frame(width: 50, height: 40, alignment: .center)
@@ -46,7 +46,7 @@ struct CountryDataRowView: View {
             Spacer()
             
             // recover
-            Text("10")
+            Text(String(detailedCountryData.recoveredCases))
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
                 .frame(width: 50, height: 40, alignment: .center)
@@ -59,6 +59,6 @@ struct CountryDataRowView: View {
 
 struct CountryDataRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CountryDataRowView(countryData: testCountryData)
+        CountryDataRowView(detailedCountryData: testDetailedCountryData)
     }
 }

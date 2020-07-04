@@ -28,12 +28,11 @@ struct RecentView: View {
                 TotalDataView(totalData: covidFetch.totalData)
                 ListHeaderView()
                 List {
-                    ForEach(covidFetch.allCountries.filter{
-                        self.searchText.isEmpty ? true : $0.name.lowercased().contains(self.searchText.lowercased())
-                    }, id: \.name) { countryData in
-                        
-                        NavigationLink(destination: CountryDetailView(countryName: countryData.name)) {
-                            CountryDataRowView(countryData: countryData)
+                    ForEach(test.allCountries.filter{
+                        self.searchText.isEmpty ? true : $0.country.lowercased().contains(self.searchText.lowercased())
+                    }, id: \.country) { countryData in
+                        NavigationLink(destination: CountryDetailView(countryName: countryData.country)) {
+                            CountryDataRowView(detailedCountryData: countryData)
                         }
                     }
                 }

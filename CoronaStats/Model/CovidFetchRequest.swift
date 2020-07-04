@@ -22,9 +22,8 @@ class CovidFetchRequest: ObservableObject {
     ]
     
     init() {
-        // exceededs the rate limit per second for free plan
-//        getCurrentTotal()
-        getAllCountries()
+        getCurrentTotal()
+//        getAllCountries()
     }
     
     func getCurrentTotal() {
