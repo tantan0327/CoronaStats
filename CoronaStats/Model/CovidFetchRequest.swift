@@ -17,13 +17,13 @@ class CovidFetchRequest: ObservableObject {
     @Published var totalData: TotalData = testTotalData
     
     let headers: HTTPHeaders = [
-        "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-        "x-rapidapi-key": "5142dd158bmshaf048e9888d4501p1b0000jsn5f21ac36a157"
+        "x-rapidapi-host": "hostname",
+        "x-rapidapi-key": "key"
     ]
     
     init() {
         getCurrentTotal()
-//        getAllCountries()
+        getAllCountries()
     }
     
     func getCurrentTotal() {
